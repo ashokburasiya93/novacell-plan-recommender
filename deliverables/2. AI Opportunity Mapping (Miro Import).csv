@@ -1,0 +1,61 @@
+﻿Frame,Type,Title,Text,Color,Impact,Feasibility,Score,Quadrant
+1 Header,Sticky,Persona,"Kavya, postpaid customer on Unlimited, uses about 6 GB a month (synthetic). Ignores banners; calls 611 after bill shocks.",yellow,,,,
+1 Header,Sticky,Root cause,"Nobody shows customers the plan that fits their own usage: one upgrade banner for all, and a playbook that only moves people up.",yellow,,,,
+1 Header,Sticky,Evidence,Synthetic: 34% would be $3+/month better off; 39% of Unlimited users use < 10 GB; 2.9% of changes went to Unlimited; playbook shocks the bill 62% of the time.,yellow,,,,
+1 Header,Sticky,Goal,"Find where recommendation and AI can match each customer to the right plan and add-ons, honestly, and test the revenue impact.",yellow,,,,
+2 Workflow,Sticky,S1 Usage builds up | Today,"Data, hotspot, travel and international calls vary month to month.",gray,,,,
+2 Workflow,Sticky,S1 Usage builds up | Pain,Nobody compares usage with the plan.,red,,,,
+2 Workflow,Sticky,S1 Usage builds up | AI opportunities,"O1, O2",light_green,,,,
+2 Workflow,Sticky,S2 Customer opens the app | Today,Sees 'Upgrade to Unlimited' banner.,gray,,,,
+2 Workflow,Sticky,S2 Customer opens the app | Pain,Same banner for everyone; ignored.,red,,,,
+2 Workflow,Sticky,S2 Customer opens the app | AI opportunities,"O3, O4, O5",light_green,,,,
+2 Workflow,Sticky,S3 Bill arrives | Today,"Roaming, calling or slowed data show up only now.",gray,,,,
+2 Workflow,Sticky,S3 Bill arrives | Pain,Bill shock; 611 complaint.,red,,,,
+2 Workflow,Sticky,S3 Bill arrives | AI opportunities,"O1, O6",light_green,,,,
+2 Workflow,Sticky,S4 Talks to an agent | Today,Playbook: over cap → Unlimited; travelling → Day Pass.,gray,,,,
+2 Workflow,Sticky,S4 Talks to an agent | Pain,Upsell only; bill shock for 62% of top suggestions.,red,,,,
+2 Workflow,Sticky,S4 Talks to an agent | AI opportunities,"O3, O7",light_green,,,,
+2 Workflow,Sticky,S5 Changes plan (or leaves) | Today,"Changes on own research, or ports out.",gray,,,,
+2 Workflow,Sticky,S5 Changes plan (or leaves) | Pain,No measurement of which suggestions worked.,red,,,,
+2 Workflow,Sticky,S5 Changes plan (or leaves) | AI opportunities,O8,light_green,,,,
+3 Opportunities,Card,O1 Bill under every option,"Calculate each customer's monthly bill and slowed data under every eligible plan and add-on. Why AI: Not AI, but the feature that makes the recommender honest. Evidence: 34% better off elsewhere Stage: S1, S3",blue,5,5,25,Do first (MVP)
+3 Opportunities,Card,O2 Eligibility rules,"Catalogue rules: student, 55+, family size, prepaid moves. Why AI: Rules, not ML; must be exact. Evidence: plan terms Stage: S1",blue,4,5,20,Do first (MVP)
+3 Opportunities,Card,O3 Recommender (hybrid ranker),"Rank options by what similar customers chose, their usage and the bill impact. Why AI: Learns trade-offs a playbook can't. Evidence: playbook top-3 hit 67% Stage: S2, S4",blue,5,4,20,Do first (MVP)
+3 Opportunities,Card,O4 Fit-first guardrail + show-nothing gate,Drop bill-shock suggestions; show nothing unless the customer is $3+ better off. Why AI: Trust. Evidence: 62% bill shock today Stage: S2,blue,5,5,25,Do first (MVP)
+3 Opportunities,Card,O5 AI-written in-app message,"LLM writes headline, reason and bill change; code checks numbers, names and wording. Why AI: Language task, grounded. Evidence: banners ignored Stage: S2",blue,3,4,12,Quick add-on
+3 Opportunities,Card,O6 Pre-trip roaming nudge,Suggest a pass when travel is detected or booked. Why AI: Timing model; needs trip signals. Evidence: 53 travellers with no pass Stage: S3,blue,4,3,12,Plan next
+3 Opportunities,Card,O7 Agent screen with the same suggestions,Agents see the top 3 and reasons during calls. Why AI: Reuse. Evidence: playbook upsell only; needs agent-desktop integration Stage: S4,blue,4,3,12,Plan next
+3 Opportunities,Card,O8 A/B test: fit first vs balanced vs banner,"Measure adoption, revenue, complaints and churn. Why AI: Decides the revenue trade-off with evidence. Evidence: no measurement today Stage: S5",blue,5,3,15,Plan next
+3 Opportunities,Card,O9 Automatic plan switching,"Move customers without asking. Why AI: Fast, but consent and trust risk. Evidence: regulatory Stage: S5",blue,2,2,4,Park / avoid
+3 Opportunities,Card,O10 Revenue-maximising ranker,Rank by NovaCell revenue. Why AI: Easy; recreates the banner problem. Evidence: banner ignored Stage: S2,blue,2,4,8,Park / avoid
+4 Scoring,Sticky,Scoring rubric,Impact (1-5): customers affected + money at stake + trust. Feasibility (1-5): data available + technique maturity + cost of being wrong + effort. Do first = Impact >= 4 and Feasibility >= 4.,yellow,,,,
+5 Impact x Feasibility 2x2,Sticky,O1 Bill under every option,I5 x F5 = 25,green,5,5,25,Do first (MVP)
+5 Impact x Feasibility 2x2,Sticky,O4 Fit-first guardrail + show-nothing gate,I5 x F5 = 25,green,5,5,25,Do first (MVP)
+5 Impact x Feasibility 2x2,Sticky,O2 Eligibility rules,I4 x F5 = 20,green,4,5,20,Do first (MVP)
+5 Impact x Feasibility 2x2,Sticky,O3 Recommender (hybrid ranker),I5 x F4 = 20,green,5,4,20,Do first (MVP)
+5 Impact x Feasibility 2x2,Sticky,O8 A/B test: fit first vs balanced vs banner,I5 x F3 = 15,yellow,5,3,15,Plan next
+5 Impact x Feasibility 2x2,Sticky,O5 AI-written in-app message,I3 x F4 = 12,light_blue,3,4,12,Quick add-on
+5 Impact x Feasibility 2x2,Sticky,O6 Pre-trip roaming nudge,I4 x F3 = 12,yellow,4,3,12,Plan next
+5 Impact x Feasibility 2x2,Sticky,O7 Agent screen with the same suggestions,I4 x F3 = 12,yellow,4,3,12,Plan next
+5 Impact x Feasibility 2x2,Sticky,O10 Revenue-maximising ranker,I2 x F4 = 8,gray,2,4,8,Park / avoid
+5 Impact x Feasibility 2x2,Sticky,O9 Automatic plan switching,I2 x F2 = 4,gray,2,2,4,Park / avoid
+6 Should / Should NOT,Sticky,Should do,Recommend from each customer's own usage and the exact bill change.,green,,,,
+6 Should / Should NOT,Sticky,Should do,Include suggestions that lower the bill.,green,,,,
+6 Should / Should NOT,Sticky,Should do,Show nothing when the plan already fits.,green,,,,
+6 Should / Should NOT,Sticky,Should do,Give a plain reason for every suggestion.,green,,,,
+6 Should / Should NOT,Sticky,Should do,"Measure revenue, complaints and churn against a control group.",green,,,,
+6 Should / Should NOT,Sticky,Should NOT do,Change a plan or add anything without the customer's tap.,red,,,,
+6 Should / Should NOT,Sticky,Should NOT do,Push suggestions that raise the bill with no usage reason.,red,,,,
+6 Should / Should NOT,Sticky,Should NOT do,Use pressure or scarcity wording.,red,,,,
+6 Should / Should NOT,Sticky,Should NOT do,"Use gender or region, or tell customers they were tracked.",red,,,,
+6 Should / Should NOT,Sticky,Should NOT do,Move postpaid customers to prepaid from the app.,red,,,,
+7 Feature to AI to Guardrails,Table row,F1 Recommender,"From: O1, O2, O3 | AI capability: Hybrid gradient-boosted ranker (vs popularity, playbook, item-to-item CF; chosen on a later-month test) | Inputs: 3-month usage, holdings, lines, eligibility flags, bill under each option | Output: Ranked eligible options | Guardrails: Eligibility rules; no gender or region | Test: Top-3 accuracy on Sep-Oct changes",violet,,,,
+7 Feature to AI to Guardrails,Table row,F2 Fit-first guardrail + gate,"From: O4 | AI capability: Rules on top of the ranker | Output: Up to 3 suggestions, or none | Guardrails: No bill rise > $15 without a usage reason; shown only if $3+ better off | Test: Bill shock < 1%; show precision vs banner",violet,,,,
+7 Feature to AI to Guardrails,Table row,F3 In-app message,"From: O5 | AI capability: Grounded generation (gpt-oss-120b, fallbacks) + code checks | Guardrails: numbers in facts; only the suggested item; no pressure, promises, trait or tracking talk; bill increase disclosed; template fallback | Test: 100% safe messages on dev, held-out, safety sets",violet,,,,
+7 Feature to AI to Guardrails,Table row,Next (post-MVP),"From: O6, O7, O8 | Pre-trip nudges, agent screen, A/B test | Test: adoption, revenue, complaints, churn vs control",violet,,,,
+8 Guardrails & risks,Sticky,Revenue loss from downgrades,Balanced policy option; A/B test measures revenue against churn and complaints before rollout.,orange,,,,
+8 Guardrails & risks,Sticky,Bill shock,Guardrail: no rise > $15 without a usage reason.,orange,,,,
+8 Guardrails & risks,Sticky,Feedback loop from the old banner,Training data were shaped by the Unlimited banner; control group and exploration in the A/B test.,orange,,,,
+8 Guardrails & risks,Sticky,Misleading messages,"Code checks numbers, product names, pressure and promise wording; template fallback.",orange,,,,
+8 Guardrails & risks,Sticky,Unfair suggestions,"Top-3 accuracy and bill shock checked by age band, gender and region.",orange,,,,
+9 Hand-off,Sticky,To the PRD,Build F1-F3; run the A/B test (O8) in the pilot; plan O6-O7; park O9-O10.,yellow,,,,

@@ -5,6 +5,7 @@ Fit-first plan and add-on recommendations for NovaCell (a made-up mobile operato
 > **All data is synthetic** (seed 7): 8,000 customers, 10 months of usage, 4,756 plan changes and add-on purchases. The catalogue matches the NovaCell plan catalogue used in the earlier support-assistant project.
 
 - **Live app:** https://novacell-plan-recommender.vercel.app (no sign-in)
+- **AI opportunity map (Miro):** https://miro.com/app/board/uXjVEQVIF1A=/
 
 ## The problem
 
@@ -26,7 +27,7 @@ Trained on the 2,159 choices made April–August 2026 and tested on the 698 made
 
 - **When to show nothing:** suggestions are shown only when the customer is at least $3 a month better off. At the start of September that showed suggestions to 39% of customers. 14% of them changed plan in the next two months, against 9% for a banner shown to everyone, and the gate reached 63% of everyone who changed.
 - **Fairness:** top-3 accuracy does not differ significantly by age band (p = 0.65), gender (p = 0.64) or region (p = 1.0). Gender and region are never inputs; age enters only as the 55+ plan's eligibility flag.
-- **The business tension:** most good fits lower the bill. For the top suggestion, *fit first* changes the bill by −$18.46 a month on average; *balanced*, which sends downgrades of more than $15 to the retention team instead, changes it by −$4.23. Whether lower bills pay back in fewer cancellations and complaints is what the A/B test measures (PRD, section 11).
+- **The business tension:** most good fits lower the bill. For the top suggestion, *fit first* changes the bill by −$18.46 a month on average; *balanced*, which sends downgrades of more than $15 to the retention team instead, changes it by −$4.23. With the cost sheet's assumptions (8% adoption, 1.5% monthly churn, $82 average bill), *balanced* breaks even if it cuts churn among shown customers by about 28%; *fit first* pays back only if most of its downgrades would have happened anyway. The A/B test measures both before rollout (PRD, section 11).
 
 ## How it works
 
@@ -44,6 +45,19 @@ monthly usage + holdings ─► eligible options (catalogue rules) ─► bill u
 | Tests and evals | `npm test` (all template messages pass; broken messages caught), `scripts/build_evals.py`, `evals/` |
 
 **Message checks:** every number must appear in the facts; only the recommended item is named; no pressure wording, promises or freebies; no talk of algorithms or tracking; no personal traits; and if the bill goes up the message must say so. A failed check gets one repair; then the template message is shown.
+
+## Deliverables
+
+| # | Deliverable | File |
+|---|---|---|
+| 1 | Problem discovery and user research | [deliverables/](deliverables/) |
+| 2 | AI opportunity map (Excel + Miro import CSV; board linked above) | [deliverables/](deliverables/) |
+| 3 | AI PRD | [deliverables/3. AI PRD - NovaCell Plan Recommender.docx](deliverables/) |
+| 4 | Cost estimation and break-even | [deliverables/4. Cost Estimation - NovaCell Plan Recommender.xlsx](deliverables/) |
+| 5 | Working prototype + README | this repo |
+| 6 | Presentation | [deliverables/6. Presentation - NovaCell Plan Recommender.pptx](deliverables/) |
+
+Live AI-message evals (dev 30, held-out 20, safety 15) run next; results will go in `evals/results/`.
 
 ## Run locally
 
