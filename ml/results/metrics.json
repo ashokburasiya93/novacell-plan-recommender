@@ -1,0 +1,215 @@
+{
+ "data": {
+  "customers": 8000,
+  "train_decisions": 2159,
+  "test_decisions": 698,
+  "train_months": [
+   "2026-04",
+   "2026-05",
+   "2026-06",
+   "2026-07",
+   "2026-08"
+  ],
+  "test_months": [
+   "2026-09",
+   "2026-10"
+  ],
+  "items": 14,
+  "note": "Time-based split: trained on choices made April-August, tested on September-October."
+ },
+ "k": 3,
+ "shock_limit_usd": 15.0,
+ "popularity": {
+  "hit_at_1": 0.364,
+  "hit_at_3": 0.712,
+  "ndcg_at_3": 0.568,
+  "mrr": 0.574,
+  "bill_shock_top1": 0.087,
+  "avg_customer_gain_top1_usd": 4.13
+ },
+ "rules": {
+  "hit_at_1": 0.208,
+  "hit_at_3": 0.665,
+  "ndcg_at_3": 0.473,
+  "mrr": 0.471,
+  "bill_shock_top1": 0.619,
+  "avg_customer_gain_top1_usd": -24.88
+ },
+ "item-knn": {
+  "hit_at_1": 0.418,
+  "hit_at_3": 0.759,
+  "ndcg_at_3": 0.616,
+  "mrr": 0.616,
+  "bill_shock_top1": 0.027,
+  "avg_customer_gain_top1_usd": 6.95
+ },
+ "hybrid": {
+  "hit_at_1": 0.586,
+  "hit_at_3": 0.91,
+  "ndcg_at_3": 0.779,
+  "mrr": 0.753,
+  "bill_shock_top1": 0.011,
+  "avg_customer_gain_top1_usd": 16.76
+ },
+ "hybrid+guardrail": {
+  "hit_at_1": 0.579,
+  "hit_at_3": 0.891,
+  "ndcg_at_3": 0.766,
+  "mrr": 0.735,
+  "bill_shock_top1": 0.001,
+  "avg_customer_gain_top1_usd": 16.8
+ },
+ "train_fit_hybrid": {
+  "hit_at_1": 0.675,
+  "hit_at_3": 0.952,
+  "ndcg_at_3": 0.839,
+  "mrr": 0.811,
+  "bill_shock_top1": 0.007,
+  "avg_customer_gain_top1_usd": 20.08
+ },
+ "feature_importance": {
+  "net_gain": 0.2508,
+  "knn": 0.0249,
+  "d_paid": 0.021,
+  "paid_now": 0.0197,
+  "item": 0.009,
+  "cur_plan": 0.009,
+  "eligible_55_plus": 0.0069,
+  "n_addons": 0.0049,
+  "lines": 0.0045,
+  "student": 0.0043
+ },
+ "fairness": {
+  "age_band": {
+   "groups": {
+    "18-24": {
+     "n": 123,
+     "hit_at_3": 0.846,
+     "bill_shock": 0.0
+    },
+    "25-34": {
+     "n": 135,
+     "hit_at_3": 0.904,
+     "bill_shock": 0.0
+    },
+    "35-44": {
+     "n": 135,
+     "hit_at_3": 0.896,
+     "bill_shock": 0.007
+    },
+    "45-54": {
+     "n": 117,
+     "hit_at_3": 0.906,
+     "bill_shock": 0.0
+    },
+    "55-64": {
+     "n": 103,
+     "hit_at_3": 0.903,
+     "bill_shock": 0.0
+    },
+    "65+": {
+     "n": 85,
+     "hit_at_3": 0.894,
+     "bill_shock": 0.0
+    }
+   },
+   "hit_p_value": 0.652
+  },
+  "gender": {
+   "groups": {
+    "F": {
+     "n": 354,
+     "hit_at_3": 0.884,
+     "bill_shock": 0.003
+    },
+    "M": {
+     "n": 344,
+     "hit_at_3": 0.898,
+     "bill_shock": 0.0
+    }
+   },
+   "hit_p_value": 0.635
+  },
+  "region": {
+   "groups": {
+    "Central": {
+     "n": 115,
+     "hit_at_3": 0.887,
+     "bill_shock": 0.0
+    },
+    "East": {
+     "n": 128,
+     "hit_at_3": 0.898,
+     "bill_shock": 0.008
+    },
+    "North": {
+     "n": 163,
+     "hit_at_3": 0.89,
+     "bill_shock": 0.0
+    },
+    "South": {
+     "n": 152,
+     "hit_at_3": 0.888,
+     "bill_shock": 0.0
+    },
+    "West": {
+     "n": 140,
+     "hit_at_3": 0.893,
+     "bill_shock": 0.0
+    }
+   },
+   "hit_p_value": 0.998
+  }
+ },
+ "gate": {
+  "min_gain_usd": 3.0,
+  "customers": 8000,
+  "shown_share": 0.392,
+  "precision": 0.138,
+  "recall": 0.631,
+  "base_rate_banner_to_all": 0.085
+ },
+ "current": {
+  "customers": 1500,
+  "shown": 504,
+  "share_shown": 0.336,
+  "catalogue_coverage_top3": 0.929,
+  "popularity_coverage_top3": 0.714,
+  "avg_bill_change_top1_usd": -18.46,
+  "share_top1_lowers_bill": 0.885,
+  "avg_customer_gain_top1_usd": 18.41,
+  "top1_mix": {
+   "POST-ESSENTIAL": 166,
+   "ADDON-INTL-CALLING": 68,
+   "PRE-STARTER-5": 59,
+   "SENIOR-55": 45,
+   "ADDON-INTL-DAYPASS": 38,
+   "STUDENT-UNLTD": 33,
+   "ADDON-HOTSPOT-BOOST": 28,
+   "FAMILY-UNLIMITED-4": 26,
+   "PRE-VALUE-15": 16,
+   "POST-UNLIMITED": 11,
+   "POST-UNLIMITED-PLUS": 9,
+   "ADDON-INTL-MONTHLY": 4,
+   "PRE-UNLTD": 1
+  }
+ },
+ "policies": {
+  "fit_first": {
+   "share_shown": 0.336,
+   "avg_customer_gain_top1_usd": 18.41,
+   "avg_revenue_change_top1_usd": -18.46,
+   "share_top1_lowers_bill": 0.885,
+   "share_top1_raises_bill": 0.095
+  },
+  "balanced": {
+   "share_shown": 0.176,
+   "avg_customer_gain_top1_usd": 8.51,
+   "avg_revenue_change_top1_usd": -4.23,
+   "share_top1_lowers_bill": 0.761,
+   "share_top1_raises_bill": 0.193
+  },
+  "big_downgrade_usd": -15.0
+ },
+ "chosen": "hybrid+guardrail"
+}

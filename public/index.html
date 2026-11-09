@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NovaCell Plan Recommender</title>
+<meta name="description" content="Fit-first plan and add-on recommendations for NovaCell customers: the right plan for their usage, the reason, the bill change, and a checked AI message. Synthetic data.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230f766e'/><path d='M9 21l5-5 4 3 6-8' stroke='white' stroke-width='2.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<style>
+:root{--bg:#f6f7f9;--panel:#fff;--ink:#14181f;--muted:#5b6472;--line:#e3e6eb;--brand:#0f766e;--brand-soft:#e6f4f2;--ok:#15803d;--ok-soft:#e8f6ec;--warn:#b45309;--warn-soft:#fdf3e4;--bad:#b91c1c;--bad-soft:#fdecec;--info:#1d4ed8;--info-soft:#e9effd;--shadow:0 1px 2px rgba(16,24,40,.06),0 1px 3px rgba(16,24,40,.08)}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1216;--panel:#171b21;--ink:#e7eaee;--muted:#9aa4b2;--line:#2a313b;--brand:#2dd4bf;--brand-soft:#11312e;--ok:#4ade80;--ok-soft:#12291a;--warn:#fbbf24;--warn-soft:#2d230f;--bad:#f87171;--bad-soft:#2f1515;--info:#93b4ff;--info-soft:#18213a;--shadow:none}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14.5px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{display:flex;align-items:center;gap:12px;padding:12px 18px;background:var(--panel);border-bottom:1px solid var(--line);flex-wrap:wrap;position:sticky;top:0;z-index:5}
+.logo{display:flex;align-items:center;gap:10px;font-weight:650;font-size:16px}.logo svg{width:30px;height:30px}.logo small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+.chips{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;font-size:12px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:3px 10px;background:var(--bg);color:var(--muted);white-space:nowrap}.chip b{color:var(--ink);font-weight:600}
+.dot::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--muted);margin-right:6px;vertical-align:1px}.dot.live::before{background:var(--ok)}.dot.down::before{background:var(--bad)}
+nav.tabs{display:flex;gap:4px;padding:0 18px;background:var(--panel);border-bottom:1px solid var(--line)}
+nav.tabs button{border:0;background:none;padding:10px 14px;font:inherit;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent}
+nav.tabs button.on{color:var(--ink);border-bottom-color:var(--brand);font-weight:600}
+main{max-width:1240px;margin:0 auto;padding:16px 18px 40px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-bottom:14px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;box-shadow:var(--shadow)}
+.kpi .v{font-size:22px;font-weight:700}.kpi .l{color:var(--muted);font-size:12.5px}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:14px;align-items:start}
+@media (max-width:900px){.grid{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+.card h2{font-size:15px;margin:0;padding:12px 14px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card h2 small{color:var(--muted);font-weight:400}
+.filters{display:flex;gap:8px;flex-wrap:wrap;padding:10px 14px;border-bottom:1px solid var(--line);align-items:center}
+select,input{font:inherit;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:8px;padding:5px 8px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}.seg button{border:0;background:var(--bg);color:var(--muted);font:inherit;padding:5px 10px;cursor:pointer}.seg button.on{background:var(--brand);color:#fff}
+.list{max-height:66vh;overflow:auto}
+table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--muted);font-weight:600;position:sticky;top:0;background:var(--panel)}
+tr.row{cursor:pointer}tr.row:hover{background:var(--bg)}tr.row.sel{background:var(--brand-soft)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.down{color:var(--ok);font-weight:650}.up{color:var(--warn);font-weight:650}.muted{color:var(--muted)}.small{font-size:12.5px}
+.pad{padding:12px 14px}
+.usage{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:8px 0 2px}.usage div{background:var(--bg);border-radius:8px;padding:8px}.usage b{display:block;font-size:16px}
+.rec{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:10px 0}.rec.top{border-color:var(--brand);box-shadow:0 0 0 1px var(--brand) inset}
+.rec h3{margin:0 0 4px;font-size:15px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}.rec h3 .tag{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:600}
+.rec ul{margin:6px 0;padding-left:18px}
+.btn{border:1px solid var(--brand);background:var(--brand);color:#fff;border-radius:8px;padding:6px 12px;font:inherit;cursor:pointer}.btn.ghost{background:transparent;color:var(--brand)}
+.btn:disabled{opacity:.6;cursor:wait}
+.msg{background:var(--bg);border-radius:10px;padding:12px;margin-top:8px}.msg .h{font-weight:700;margin-bottom:4px}.msg .cta{display:inline-block;margin-top:8px;border-radius:999px;background:var(--brand);color:#fff;padding:4px 12px;font-size:13px}
+.badge{display:inline-block;font-size:11.5px;border-radius:999px;padding:2px 8px;margin-top:6px}.b-ok{background:var(--ok-soft);color:var(--ok)}.b-warn{background:var(--warn-soft);color:var(--warn)}.b-info{background:var(--info-soft);color:var(--info)}
+.note{background:var(--info-soft);color:var(--ink);border-radius:10px;padding:10px 12px;margin:10px 0;font-size:13px}
+.ev table td,.ev table th{padding:6px 8px}.ev .best td{font-weight:650;background:var(--brand-soft)}
+.bar{height:8px;background:var(--brand);border-radius:4px}
+footer{max-width:1240px;margin:0 auto;padding:0 18px 30px;color:var(--muted);font-size:12.5px}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#0f766e"/><path d="M9 21l5-5 4 3 6-8" stroke="white" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div>NovaCell Plan Recommender<small>The right plan and add-ons for each customer's usage · synthetic data</small></div></div>
+  <div class="chips" id="chips"><span class="chip">Loading…</span></div>
+</header>
+<nav class="tabs"><button class="on" data-t="recs">Recommendations</button><button data-t="ev">How the recommender was chosen</button></nav>
+<main>
+<section id="t-recs">
+  <div class="kpis" id="kpis"></div>
+  <div class="grid">
+    <div class="card">
+      <h2>Customers <small id="count"></small></h2>
+      <div class="filters">
+        <span class="seg" id="policy"><button data-p="fit" class="on">Fit first</button><button data-p="bal">Balanced</button></span>
+        <select id="fshow"><option value="shown">With a suggestion</option><option value="none">Plan already fits</option><option value="all">All</option></select>
+        <select id="fdir"><option value="">Any bill change</option><option value="down">Bill goes down</option><option value="up">Bill goes up</option></select>
+        <input id="q" placeholder="Customer ID" size="11">
+      </div>
+      <div class="list"><table><thead><tr><th>Customer</th><th>Now</th><th>Top suggestion</th><th class="num">Bill change</th></tr></thead><tbody id="rows"></tbody></table></div>
+    </div>
+    <div class="card" id="detail"><div class="pad muted">Select a customer.</div></div>
+  </div>
+</section>
+<section id="t-ev" class="ev" hidden></section>
+</main>
+<footer>All customers, usage and prices are synthetic, made up for a course project. Suggestions come from a recommender trained on past plan changes; a guardrail removes any suggestion that would raise the bill by more than $15 a month without a matching usage reason. Messages are written by an AI model and checked by code before they are shown.</footer>
+<script>
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const money = (n) => (n < 0 ? "−" : n > 0 ? "+" : "") + "$" + Math.abs(n).toFixed(2).replace(/\.00$/, "");
+const pct = (x) => (x > 0 && x < 0.01 ? (x * 100).toFixed(1) : (x * 100).toFixed(0)) + "%";
+let CUST = [], MODEL = null, CAT = {}, POLICY = "fit", SEL = null;
+const BIG_DOWN = -15;
+const recsOf = (c) => c.recommendations.filter((r) => POLICY === "fit" || r.bill_change_usd >= BIG_DOWN);
+
+async function init() {
+  [CUST, MODEL] = await Promise.all([fetch("customers.json").then((r) => r.json()), fetch("model.json").then((r) => r.json())]);
+  MODEL.catalogue.forEach((i) => (CAT[i.id] = i));
+  fetch("/api/health").then((r) => r.json()).then((h) => {
+    const live = (k) => `<span class="chip dot ${h.keys?.[k] ? "live" : "down"}">`;
+    $("#chips").innerHTML = `<span class="chip">Recommender <b>gradient-boosted ranker</b></span>${live("groq")}Messages <b>${esc(h.models.primary.model.split("/").pop())}</b></span>${live("openrouter")}Fallback <b>${esc(h.models.secondary.model.split("/").pop())} → ${esc(h.models.fallback.model.split("/").pop().replace(":free", ""))}</b></span>`;
+  }).catch(() => ($("#chips").innerHTML = `<span class="chip dot down">API offline</span>`));
+  render(); evidence();
+}
+
+function kpis() {
+  const shown = CUST.filter((c) => recsOf(c).length);
+  const top = shown.map((c) => recsOf(c)[0]);
+  const avg = (a) => a.reduce((s, x) => s + x, 0) / Math.max(1, a.length);
+  const m = MODEL.metrics["hybrid+guardrail"];
+  $("#kpis").innerHTML = [
+    [pct(shown.length / CUST.length), `of ${CUST.length.toLocaleString()} customers get a suggestion; the rest already fit`],
+    [money(avg(top.map((r) => r.bill_change_usd))), "average monthly bill change for the top suggestion"],
+    [money(avg(top.map((r) => r.customer_gain_usd))).replace("+", ""), "average monthly value to the customer (money + data no longer slowed)"],
+    [pct(m.hit_at_3), "of real plan changes were in the top 3 (Sep–Oct test)"],
+    [pct(m.bill_shock_top1), "of top suggestions would shock the bill (> $15 up, no usage reason)"],
+  ].map(([v, l]) => `<div class="kpi"><div class="v">${v}</div><div class="l">${l}</div></div>`).join("");
+}
+
+function render() {
+  kpis();
+  const show = $("#fshow").value, dir = $("#fdir").value, q = $("#q").value.trim().toUpperCase();
+  const rows = CUST.filter((c) => {
+    const r = recsOf(c);
+    if (show === "shown" && !r.length) return false;
+    if (show === "none" && r.length) return false;
+    if (dir && (!r.length || (dir === "down" ? r[0].bill_change_usd >= 0 : r[0].bill_change_usd <= 0))) return false;
+    return !q || c.customer_id.includes(q);
+  });
+  $("#count").textContent = `${rows.length.toLocaleString()} shown`;
+  $("#rows").innerHTML = rows.slice(0, 400).map((c) => {
+    const r = recsOf(c)[0];
+    return `<tr class="row ${c.customer_id === SEL ? "sel" : ""}" data-id="${c.customer_id}"><td><b>${c.customer_id}</b><div class="small muted">${c.lines} line${c.lines > 1 ? "s" : ""}</div></td><td class="small">${esc(c.plan_name)}${c.addons.length ? `<div class="muted">+ ${c.addons.length} add-on${c.addons.length > 1 ? "s" : ""}</div>` : ""}</td>
+      <td class="small">${r ? esc(r.name) : '<span class="muted">No change needed</span>'}</td><td class="num">${r ? `<span class="${r.bill_change_usd < 0 ? "down" : r.bill_change_usd > 0 ? "up" : ""}">${money(r.bill_change_usd)}</span>` : ""}</td></tr>`;
+  }).join("") || `<tr><td colspan="4" class="muted">No customers match.</td></tr>`;
+  if (!SEL && rows[0]) select(rows[0].customer_id); else if (SEL) select(SEL);
+}
+
+function select(id) {
+  SEL = id;
+  document.querySelectorAll("tr.row").forEach((tr) => tr.classList.toggle("sel", tr.dataset.id === id));
+  const c = CUST.find((x) => x.customer_id === id);
+  const recs = recsOf(c);
+  const hidden = c.recommendations.length - recs.length;
+  const u = c.usage;
+  $("#detail").innerHTML = `<h2>${c.customer_id} <small>${esc(c.plan_name)}${c.addons.length ? " + " + c.addons.map((a) => esc(CAT[a].name)).join(", ") : ""} · ${c.lines} line${c.lines > 1 ? "s" : ""}</small></h2>
+  <div class="pad">
+    <div class="small muted">Usage per month (3-month average) · average bill <b>$${c.paid_now_usd.toFixed(2)}</b></div>
+    <div class="usage"><div><b>${u.data_gb} GB</b><span class="small muted">data</span></div><div><b>${u.hotspot_gb} GB</b><span class="small muted">hotspot</span></div><div><b>${u.abroad_days}</b><span class="small muted">days abroad</span></div><div><b>${Math.round(u.intl_minutes)}</b><span class="small muted">intl. call minutes</span></div></div>
+    ${recs.length ? recs.map((r, i) => `<div class="rec ${i === 0 ? "top" : ""}"><h3>${esc(r.name)} <span class="tag">${r.kind === "plan" ? "plan change" : "add-on"}${i === 0 ? " · top suggestion" : ""}</span></h3>
+      <div>Bill <span class="${r.bill_change_usd < 0 ? "down" : r.bill_change_usd > 0 ? "up" : ""}">${r.bill_change_usd === 0 ? "about the same" : money(r.bill_change_usd) + " a month"}</span>${r.slowed_gb_removed > 0 ? ` · <b>${r.slowed_gb_removed} GB</b> a month no longer slowed` : ""} · value to customer <b>$${r.customer_gain_usd.toFixed(2)}</b>/month</div>
+      <ul class="small">${r.reasons.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
+      <button class="btn ${i ? "ghost" : ""}" data-msg="${r.item}">Write in-app message</button><div id="m-${r.item}"></div></div>`).join("")
+      : `<div class="note">No suggestion. ${c.recommendations.length ? "The only good fit is a large downgrade, which the Balanced policy leaves to the retention team." : "The current plan already fits this customer's usage: no option is at least $3 a month better."}</div>`}
+    ${hidden && recs.length ? `<div class="note">${hidden} larger downgrade${hidden > 1 ? "s" : ""} hidden by the Balanced policy (offered by the retention team instead).</div>` : ""}
+  </div>`;
+  document.querySelectorAll("[data-msg]").forEach((b) => (b.onclick = () => writeMsg(c.customer_id, b.dataset.msg, b)));
+}
+
+async function writeMsg(id, item, btn) {
+  const box = $("#m-" + item);
+  btn.disabled = true; box.innerHTML = `<div class="msg muted">Writing and checking…</div>`;
+  try {
+    const r = await fetch(`/api/message?customer_id=${encodeURIComponent(id)}&item=${encodeURIComponent(item)}`).then((x) => x.json());
+    const m = r.message || {};
+    const badge = r.status === "generated" ? `<span class="badge b-ok">AI-written · passed all checks${r.repaired ? " after one repair" : ""} · ${esc(r.modelUsed.model.split("/").pop())}</span>` : `<span class="badge b-warn">Template message · ${esc(r.guardrailNote || "")}</span>`;
+    box.innerHTML = `<div class="msg"><div class="h">${esc(m.headline)}</div><div>${esc(m.body)}</div><span class="cta">${esc(m.cta)}</span><div>${badge}</div></div>`;
+  } catch (e) {
+    box.innerHTML = `<div class="msg">Could not reach the message service.</div>`;
+  } finally { btn.disabled = false; }
+}
+
+function evidence() {
+  const M = MODEL.metrics, names = { popularity: "Popularity (one banner for all)", rules: "Today's agent playbook (rules)", "item-knn": "Item-to-item collaborative filtering", hybrid: "Hybrid gradient-boosted ranker", "hybrid+guardrail": "Hybrid ranker + fit-first guardrail (chosen)" };
+  const fi = Object.entries(MODEL.feature_importance), max = Math.max(...fi.map(([, v]) => v));
+  const F = MODEL.fairness, P = MODEL.policies, G = MODEL.gate;
+  $("#t-ev").innerHTML = `
+  <div class="card pad"><h3 style="margin-top:0">Which recommender, measured on later months</h3>
+  <p class="muted small">${MODEL.data.train_decisions.toLocaleString()} real plan changes and add-on purchases from April–August trained each model; the ${MODEL.data.test_decisions.toLocaleString()} made in September–October tested them. Every method ranks the same eligible options. "Bill shock" = the top suggestion raises the monthly bill by more than $15 without removing at least as much in charges or slowed data.</p>
+  <table><thead><tr><th>Method</th><th class="num">In top 1</th><th class="num">In top 3</th><th class="num">NDCG@3</th><th class="num">Bill shock</th><th class="num">Value to customer (top 1)</th></tr></thead><tbody>
+  ${Object.keys(names).map((k) => `<tr class="${k === "hybrid+guardrail" ? "best" : ""}"><td>${names[k]}</td><td class="num">${pct(M[k].hit_at_1)}</td><td class="num">${pct(M[k].hit_at_3)}</td><td class="num">${M[k].ndcg_at_3.toFixed(2)}</td><td class="num">${pct(M[k].bill_shock_top1)}</td><td class="num">${money(M[k].avg_customer_gain_top1_usd)}/mo</td></tr>`).join("")}
+  </tbody></table>
+  <p class="small">The playbook pushes Unlimited to anyone over their data cap and the Day Pass to anyone who travels: ${pct(M.rules.bill_shock_top1)} of its top suggestions would shock the bill. The hybrid ranker learns from usage, what customers already own, and the bill each option would produce. The guardrail costs ${((M.hybrid.hit_at_3 - M["hybrid+guardrail"].hit_at_3) * 100).toFixed(1)} points of top-3 accuracy and removes almost all bill shock.</p></div>
+  <div class="grid" style="margin-top:14px">
+   <div class="card pad"><h3 style="margin-top:0">When to show nothing</h3>
+    <p class="small">A suggestion is shown only if the customer is at least $${G.min_gain_usd} a month better off. At the start of September this showed suggestions to ${pct(G.shown_share)} of customers. ${pct(G.precision)} of them changed plan or bought an add-on in the next two months, against ${pct(G.base_rate_banner_to_all)} for a banner shown to everyone, and the gate reached ${pct(G.recall)} of all customers who changed.</p>
+    <h3>Fit first vs balanced</h3>
+    <table><thead><tr><th>Policy</th><th class="num">Shown to</th><th class="num">Bill change (top 1)</th><th class="num">Value to customer</th></tr></thead><tbody>
+    <tr><td>Fit first</td><td class="num">${pct(P.fit_first.share_shown)}</td><td class="num">${money(P.fit_first.avg_revenue_change_top1_usd)}</td><td class="num">${money(P.fit_first.avg_customer_gain_top1_usd)}</td></tr>
+    <tr><td>Balanced (downgrades over $15 go to the retention team)</td><td class="num">${pct(P.balanced.share_shown)}</td><td class="num">${money(P.balanced.avg_revenue_change_top1_usd)}</td><td class="num">${money(P.balanced.avg_customer_gain_top1_usd)}</td></tr></tbody></table>
+    <p class="small muted">Most good fits cost NovaCell revenue in the short term: they move overpaying customers to cheaper plans and replace pay-as-you-go roaming and calling with passes. Whether that pays back in fewer cancellations and complaints is what the A/B test measures.</p></div>
+   <div class="card pad"><h3 style="margin-top:0">What the ranker relies on</h3>
+    ${fi.map(([k, v]) => `<div class="small" style="display:grid;grid-template-columns:140px 1fr;gap:8px;align-items:center;margin:4px 0"><span>${esc(k.replace(/_/g, " "))}</span><div class="bar" style="width:${Math.max(3, (v / max) * 100)}%"></div></div>`).join("")}
+    <p class="small muted">Permutation importance on the test month. "net gain" is the estimated monthly value to the customer: bill change plus data no longer slowed.</p>
+    <h3>Fairness check</h3>
+    <p class="small">Top-3 accuracy by group (gender and region are never model inputs; age enters only as the 55+ plan's eligibility flag): age band p = ${F.age_band.hit_p_value}, gender p = ${F.gender.hit_p_value}, region p = ${F.region.hit_p_value}. No significant differences.</p></div>
+  </div>`;
+}
+
+document.querySelectorAll("nav.tabs button").forEach((b) => (b.onclick = () => { document.querySelectorAll("nav.tabs button").forEach((x) => x.classList.toggle("on", x === b)); $("#t-recs").hidden = b.dataset.t !== "recs"; $("#t-ev").hidden = b.dataset.t !== "ev"; }));
+$("#policy").onclick = (e) => { if (!e.target.dataset.p) return; POLICY = e.target.dataset.p; document.querySelectorAll("#policy button").forEach((x) => x.classList.toggle("on", x === e.target)); render(); };
+["#fshow", "#fdir"].forEach((s) => ($(s).onchange = () => { SEL = null; render(); }));
+$("#q").oninput = () => { SEL = null; render(); };
+$("#rows").onclick = (e) => { const tr = e.target.closest("tr.row"); if (tr) select(tr.dataset.id); };
+init();
+</script>
+</body>
+</html>

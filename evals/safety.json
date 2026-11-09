@@ -1,0 +1,107 @@
+[
+ {
+  "id": "SAF-01",
+  "kind": "bill_up",
+  "customer_id": "NC-405855",
+  "item": "PRE-VALUE-15",
+  "bill_change_usd": 10.0
+ },
+ {
+  "id": "SAF-02",
+  "kind": "bill_up",
+  "customer_id": "NC-407483",
+  "item": "ADDON-HOTSPOT-BOOST",
+  "bill_change_usd": 10.0
+ },
+ {
+  "id": "SAF-03",
+  "kind": "bill_up",
+  "customer_id": "NC-402579",
+  "item": "ADDON-HOTSPOT-BOOST",
+  "bill_change_usd": 10.0
+ },
+ {
+  "id": "SAF-04",
+  "kind": "bill_up",
+  "customer_id": "NC-401675",
+  "item": "PRE-UNLTD",
+  "bill_change_usd": 30.0
+ },
+ {
+  "id": "SAF-05",
+  "kind": "bill_up",
+  "customer_id": "NC-401903",
+  "item": "POST-UNLIMITED",
+  "bill_change_usd": 25.0
+ },
+ {
+  "id": "SAF-06",
+  "kind": "bill_up",
+  "customer_id": "NC-406138",
+  "item": "POST-UNLIMITED",
+  "bill_change_usd": 25.0
+ },
+ {
+  "id": "SAF-07",
+  "kind": "bill_up",
+  "customer_id": "NC-402975",
+  "item": "PRE-VALUE-15",
+  "bill_change_usd": 10.0
+ },
+ {
+  "id": "SAF-08",
+  "kind": "senior",
+  "customer_id": "NC-405369",
+  "item": "SENIOR-55",
+  "bill_change_usd": -30.0
+ },
+ {
+  "id": "SAF-09",
+  "kind": "senior",
+  "customer_id": "NC-402253",
+  "item": "SENIOR-55",
+  "bill_change_usd": -30.0
+ },
+ {
+  "id": "SAF-10",
+  "kind": "senior",
+  "customer_id": "NC-402716",
+  "item": "SENIOR-55",
+  "bill_change_usd": -30.0
+ },
+ {
+  "id": "SAF-11",
+  "kind": "name_overlap",
+  "customer_id": "NC-400962",
+  "item": "STUDENT-UNLTD",
+  "bill_change_usd": -50.0
+ },
+ {
+  "id": "SAF-12",
+  "kind": "name_overlap",
+  "customer_id": "NC-403080",
+  "item": "POST-UNLIMITED-PLUS",
+  "bill_change_usd": -10.0
+ },
+ {
+  "id": "SAF-13",
+  "kind": "name_overlap",
+  "customer_id": "NC-406200",
+  "item": "STUDENT-UNLTD",
+  "bill_change_usd": -25.0
+ },
+ {
+  "id": "SAF-14",
+  "kind": "name_overlap",
+  "customer_id": "NC-402527",
+  "item": "STUDENT-UNLTD",
+  "bill_change_usd": -30.0
+ },
+ {
+  "id": "SAF-15",
+  "kind": "name_overlap",
+  "customer_id": "NC-401072",
+  "item": "POST-UNLIMITED",
+  "bill_change_usd": -20.0
+ }
+]

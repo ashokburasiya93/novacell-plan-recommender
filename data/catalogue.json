@@ -1,0 +1,134 @@
+{
+ "items": [
+  {
+   "id": "PRE-STARTER-5",
+   "name": "Starter 5 (prepaid)",
+   "kind": "plan",
+   "price": 15,
+   "data_cap_gb": 5,
+   "hotspot_gb": 0,
+   "prepaid": true
+  },
+  {
+   "id": "PRE-VALUE-15",
+   "name": "Value 15 (prepaid)",
+   "kind": "plan",
+   "price": 25,
+   "data_cap_gb": 15,
+   "hotspot_gb": 5,
+   "prepaid": true
+  },
+  {
+   "id": "PRE-UNLTD",
+   "name": "Prepaid Unlimited",
+   "kind": "plan",
+   "price": 45,
+   "data_cap_gb": null,
+   "hotspot_gb": 10,
+   "prepaid": true
+  },
+  {
+   "id": "POST-ESSENTIAL",
+   "name": "Essential",
+   "kind": "plan",
+   "price": 35,
+   "data_cap_gb": 20,
+   "hotspot_gb": 10
+  },
+  {
+   "id": "POST-UNLIMITED",
+   "name": "Unlimited",
+   "kind": "plan",
+   "price": 60,
+   "data_cap_gb": null,
+   "hotspot_gb": 25
+  },
+  {
+   "id": "POST-UNLIMITED-PLUS",
+   "name": "Unlimited Plus",
+   "kind": "plan",
+   "price": 80,
+   "data_cap_gb": null,
+   "hotspot_gb": 50,
+   "roaming": true,
+   "streaming": true
+  },
+  {
+   "id": "FAMILY-UNLIMITED-4",
+   "name": "Family Unlimited (4 lines)",
+   "kind": "plan",
+   "price": 140,
+   "data_cap_gb": null,
+   "hotspot_gb": 25,
+   "family": true
+  },
+  {
+   "id": "SENIOR-55",
+   "name": "55+ Plan (2 lines)",
+   "kind": "plan",
+   "price": 40,
+   "data_cap_gb": null,
+   "hotspot_gb": 5,
+   "senior": true
+  },
+  {
+   "id": "STUDENT-UNLTD",
+   "name": "Student Unlimited",
+   "kind": "plan",
+   "price": 30,
+   "data_cap_gb": null,
+   "hotspot_gb": 15,
+   "student": true,
+   "streaming": true
+  },
+  {
+   "id": "DATA-ONLY-30",
+   "name": "Data-Only 30 (tablet line)",
+   "kind": "addon",
+   "price": 30,
+   "data_cap_gb": 30,
+   "hotspot_gb": 30,
+   "tablet": true
+  },
+  {
+   "id": "ADDON-INTL-DAYPASS",
+   "name": "International Day Pass",
+   "kind": "addon",
+   "price": 10,
+   "data_cap_gb": null,
+   "hotspot_gb": 0,
+   "per_day": true
+  },
+  {
+   "id": "ADDON-INTL-MONTHLY",
+   "name": "International Monthly Pass",
+   "kind": "addon",
+   "price": 50,
+   "data_cap_gb": null,
+   "hotspot_gb": 0
+  },
+  {
+   "id": "ADDON-INTL-CALLING",
+   "name": "International Calling Pack",
+   "kind": "addon",
+   "price": 15,
+   "data_cap_gb": null,
+   "hotspot_gb": 0
+  },
+  {
+   "id": "ADDON-HOTSPOT-BOOST",
+   "name": "Hotspot Boost",
+   "kind": "addon",
+   "price": 10,
+   "data_cap_gb": null,
+   "hotspot_gb": 15
+  }
+ ],
+ "assumptions": {
+  "roam_payg_per_day": 15.0,
+  "intl_payg_per_min": 0.4,
+  "throttle_value_per_gb": 1.5,
+  "hotspot_value_per_gb": 1.0
+ },
+ "synthetic": true
+}

@@ -1,0 +1,212 @@
+[
+ {
+  "id": "DEV-01",
+  "kind": "top",
+  "customer_id": "NC-403661",
+  "item": "STUDENT-UNLTD",
+  "bill_change_usd": -5.0
+ },
+ {
+  "id": "DEV-02",
+  "kind": "top",
+  "customer_id": "NC-405471",
+  "item": "POST-ESSENTIAL",
+  "bill_change_usd": -25.0
+ },
+ {
+  "id": "DEV-03",
+  "kind": "top",
+  "customer_id": "NC-405316",
+  "item": "ADDON-INTL-CALLING",
+  "bill_change_usd": -7.27
+ },
+ {
+  "id": "DEV-04",
+  "kind": "top",
+  "customer_id": "NC-402040",
+  "item": "PRE-STARTER-5",
+  "bill_change_usd": -10.0
+ },
+ {
+  "id": "DEV-05",
+  "kind": "top",
+  "customer_id": "NC-404952",
+  "item": "PRE-STARTER-5",
+  "bill_change_usd": -10.0
+ },
+ {
+  "id": "DEV-06",
+  "kind": "top",
+  "customer_id": "NC-406141",
+  "item": "POST-ESSENTIAL",
+  "bill_change_usd": -5.0
+ },
+ {
+  "id": "DEV-07",
+  "kind": "top",
+  "customer_id": "NC-404119",
+  "item": "ADDON-HOTSPOT-BOOST",
+  "bill_change_usd": 10.0
+ },
+ {
+  "id": "DEV-08",
+  "kind": "top",
+  "customer_id": "NC-401958",
+  "item": "POST-ESSENTIAL",
+  "bill_change_usd": -35.0
+ },
+ {
+  "id": "DEV-09",
+  "kind": "top",
+  "customer_id": "NC-402244",
+  "item": "SENIOR-55",
+  "bill_change_usd": -5.0
+ },
+ {
+  "id": "DEV-10",
+  "kind": "top",
+  "customer_id": "NC-407856",
+  "item": "POST-UNLIMITED",
+  "bill_change_usd": -20.0
+ },
+ {
+  "id": "DEV-11",
+  "kind": "top",
+  "customer_id": "NC-404152",
+  "item": "SENIOR-55",
+  "bill_change_usd": -30.0
+ },
+ {
+  "id": "DEV-12",
+  "kind": "top",
+  "customer_id": "NC-407054",
+  "item": "PRE-VALUE-15",
+  "bill_change_usd": -20.0
+ },
+ {
+  "id": "DEV-13",
+  "kind": "top",
+  "customer_id": "NC-401634",
+  "item": "PRE-STARTER-5",
+  "bill_change_usd": -10.0
+ },
+ {
+  "id": "DEV-14",
+  "kind": "top",
+  "customer_id": "NC-407059",
+  "item": "POST-ESSENTIAL",
+  "bill_change_usd": -35.0
+ },
+ {
+  "id": "DEV-15",
+  "kind": "top",
+  "customer_id": "NC-400776",
+  "item": "ADDON-INTL-DAYPASS",
+  "bill_change_usd": -3.33
+ },
+ {
+  "id": "DEV-16",
+  "kind": "top",
+  "customer_id": "NC-403550",
+  "item": "PRE-STARTER-5",
+  "bill_change_usd": -10.0
+ },
+ {
+  "id": "DEV-17",
+  "kind": "top",
+  "customer_id": "NC-400687",
+  "item": "ADDON-INTL-DAYPASS",
+  "bill_change_usd": -18.33
+ },
+ {
+  "id": "DEV-18",
+  "kind": "top",
+  "customer_id": "NC-404004",
+  "item": "ADDON-INTL-CALLING",
+  "bill_change_usd": -14.47
+ },
+ {
+  "id": "DEV-19",
+  "kind": "top",
+  "customer_id": "NC-404175",
+  "item": "POST-ESSENTIAL",
+  "bill_change_usd": -25.0
+ },
+ {
+  "id": "DEV-20",
+  "kind": "top",
+  "customer_id": "NC-406701",
+  "item": "ADDON-HOTSPOT-BOOST",
+  "bill_change_usd": 10.0
+ },
+ {
+  "id": "DEV-21",
+  "kind": "top",
+  "customer_id": "NC-407632",
+  "item": "POST-ESSENTIAL",
+  "bill_change_usd": -35.0
+ },
+ {
+  "id": "DEV-22",
+  "kind": "top",
+  "customer_id": "NC-401714",
+  "item": "ADDON-INTL-DAYPASS",
+  "bill_change_usd": -15.0
+ },
+ {
+  "id": "DEV-23",
+  "kind": "top",
+  "customer_id": "NC-404769",
+  "item": "PRE-STARTER-5",
+  "bill_change_usd": -10.0
+ },
+ {
+  "id": "DEV-24",
+  "kind": "top",
+  "customer_id": "NC-402741",
+  "item": "POST-ESSENTIAL",
+  "bill_change_usd": -25.0
+ },
+ {
+  "id": "DEV-25",
+  "kind": "top",
+  "customer_id": "NC-404055",
+  "item": "ADDON-INTL-CALLING",
+  "bill_change_usd": -44.33
+ },
+ {
+  "id": "DEV-26",
+  "kind": "top",
+  "customer_id": "NC-405673",
+  "item": "FAMILY-UNLIMITED-4",
+  "bill_change_usd": -5.0
+ },
+ {
+  "id": "DEV-27",
+  "kind": "top",
+  "customer_id": "NC-400759",
+  "item": "ADDON-INTL-CALLING",
+  "bill_change_usd": -38.73
+ },
+ {
+  "id": "DEV-28",
+  "kind": "top",
+  "customer_id": "NC-402094",
+  "item": "STUDENT-UNLTD",
+  "bill_change_usd": -5.0
+ },
+ {
+  "id": "DEV-29",
+  "kind": "top",
+  "customer_id": "NC-401882",
+  "item": "STUDENT-UNLTD",
+  "bill_change_usd": -10.0
+ },
+ {
+  "id": "DEV-30",
+  "kind": "top",
+  "customer_id": "NC-405029",
+  "item": "ADDON-INTL-DAYPASS",
+  "bill_change_usd": -5.0
+ }
+]
