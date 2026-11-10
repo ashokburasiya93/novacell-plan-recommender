@@ -1,3 +1,4 @@
 DEV-12: AI message failed checks (numbers not in the facts: 50) -> template shown
 SAF-05: AI message failed checks (numbers not in the facts: 67.8) -> template shown
 SAF-13: AI message failed checks (numbers not in the facts: 30.8) -> template shown
+06:14 UTC spot check NC-404715: checker flagged 'Unlimited' inside the customer's own 'Family Unlimited' plan -> template (safe, but a false alarm). Fixed: own plan and add-on names are removed before the other-item check.
