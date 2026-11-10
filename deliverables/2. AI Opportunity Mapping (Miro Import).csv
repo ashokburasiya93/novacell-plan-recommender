@@ -1,7 +1,7 @@
 ﻿Frame,Type,Title,Text,Color,Impact,Feasibility,Score,Quadrant
 1 Header,Sticky,Persona,"Kavya, postpaid customer on Unlimited, uses about 6 GB a month (synthetic). Ignores banners; calls 611 after bill shocks.",yellow,,,,
 1 Header,Sticky,Root cause,"Nobody shows customers the plan that fits their own usage: one upgrade banner for all, and a playbook that only moves people up.",yellow,,,,
-1 Header,Sticky,Evidence,Synthetic: 34% would be $3+/month better off; 39% of Unlimited users use < 10 GB; 2.9% of changes went to Unlimited; playbook shocks the bill 62% of the time.,yellow,,,,
+1 Header,Sticky,Evidence,Synthetic: 31% would be $3+/month better off; 39% of Unlimited users use < 10 GB; 2.9% of changes went to Unlimited; playbook shocks the bill 62% of the time.,yellow,,,,
 1 Header,Sticky,Goal,"Find where recommendation and AI can match each customer to the right plan and add-ons, honestly, and test the revenue impact.",yellow,,,,
 2 Workflow,Sticky,S1 Usage builds up | Today,"Data, hotspot, travel and international calls vary month to month.",gray,,,,
 2 Workflow,Sticky,S1 Usage builds up | Pain,Nobody compares usage with the plan.,red,,,,

@@ -1,0 +1,516 @@
+{
+ "set": "dev",
+ "run": "live, preview deployment, 10 Nov 2026",
+ "rows": [
+  {
+   "id": "DEV-01",
+   "kind": "top",
+   "customer_id": "NC-400886",
+   "item": "STUDENT-UNLTD",
+   "status": "generated",
+   "tier": "primary",
+   "repaired": false,
+   "latency_ms": 486,
+   "usage": {
+    "prompt_tokens": 575,
+    "completion_tokens": 107
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": true
+  },
+  {
+   "id": "DEV-02",
+   "kind": "top",
+   "customer_id": "NC-401508",
+   "item": "POST-UNLIMITED",
+   "status": "generated",
+   "tier": "secondary",
+   "repaired": false,
+   "latency_ms": 175,
+   "usage": {
+    "prompt_tokens": 527,
+    "completion_tokens": 53
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": true
+  },
+  {
+   "id": "DEV-03",
+   "kind": "top",
+   "customer_id": "NC-401174",
+   "item": "POST-ESSENTIAL",
+   "status": "generated",
+   "tier": "secondary",
+   "repaired": false,
+   "latency_ms": 696,
+   "usage": {
+    "prompt_tokens": 530,
+    "completion_tokens": 65
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": true
+  },
+  {
+   "id": "DEV-04",
+   "kind": "top",
+   "customer_id": "NC-400926",
+   "item": "FAMILY-UNLIMITED-4",
+   "status": "generated",
+   "tier": "secondary",
+   "repaired": false,
+   "latency_ms": 238,
+   "usage": {
+    "prompt_tokens": 527,
+    "completion_tokens": 101
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": true
+  },
+  {
+   "id": "DEV-05",
+   "kind": "top",
+   "customer_id": "NC-407008",
+   "item": "POST-UNLIMITED-PLUS",
+   "status": "generated",
+   "tier": "secondary",
+   "repaired": false,
+   "latency_ms": 415,
+   "usage": {
+    "prompt_tokens": 528,
+    "completion_tokens": 60
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": true
+  },
+  {
+   "id": "DEV-06",
+   "kind": "top",
+   "customer_id": "NC-404133",
+   "item": "ADDON-INTL-CALLING",
+   "status": "generated",
+   "tier": "secondary",
+   "repaired": true,
+   "latency_ms": 815,
+   "usage": {
+    "prompt_tokens": 1160,
+    "completion_tokens": 208
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": true
+  },
+  {
+   "id": "DEV-07",
+   "kind": "top",
+   "customer_id": "NC-402837",
+   "item": "ADDON-HOTSPOT-BOOST",
+   "status": "generated",
+   "tier": "secondary",
+   "repaired": false,
+   "latency_ms": 417,
+   "usage": {
+    "prompt_tokens": 533,
+    "completion_tokens": 68
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": true
+  },
+  {
+   "id": "DEV-08",
+   "kind": "top",
+   "customer_id": "NC-400428",
+   "item": "SENIOR-55",
+   "status": "generated",
+   "tier": "secondary",
+   "repaired": false,
+   "latency_ms": 255,
+   "usage": {
+    "prompt_tokens": 539,
+    "completion_tokens": 61
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": true
+  },
+  {
+   "id": "DEV-09",
+   "kind": "top",
+   "customer_id": "NC-401341",
+   "item": "PRE-VALUE-15",
+   "status": "generated",
+   "tier": "secondary",
+   "repaired": false,
+   "latency_ms": 310,
+   "usage": {
+    "prompt_tokens": 561,
+    "completion_tokens": 85
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": true
+  },
+  {
+   "id": "DEV-10",
+   "kind": "top",
+   "customer_id": "NC-404035",
+   "item": "POST-ESSENTIAL",
+   "status": "generated",
+   "tier": "secondary",
+   "repaired": false,
+   "latency_ms": 738,
+   "usage": {
+    "prompt_tokens": 526,
+    "completion_tokens": 67
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": true
+  },
+  {
+   "id": "DEV-11",
+   "kind": "top",
+   "customer_id": "NC-400178",
+   "item": "ADDON-INTL-CALLING",
+   "status": "generated",
+   "tier": "secondary",
+   "repaired": false,
+   "latency_ms": 278,
+   "usage": {
+    "prompt_tokens": 547,
+    "completion_tokens": 62
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": true
+  },
+  {
+   "id": "DEV-12",
+   "kind": "top",
+   "customer_id": "NC-405412",
+   "item": "ADDON-INTL-CALLING",
+   "status": "template",
+   "tier": null,
+   "repaired": false,
+   "latency_ms": 1212,
+   "usage": {
+    "prompt_tokens": 1160,
+    "completion_tokens": 192
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": true
+  },
+  {
+   "id": "DEV-13",
+   "kind": "top",
+   "customer_id": "NC-404053",
+   "item": "POST-ESSENTIAL",
+   "status": "generated",
+   "tier": "secondary",
+   "repaired": false,
+   "latency_ms": 405,
+   "usage": {
+    "prompt_tokens": 526,
+    "completion_tokens": 69
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": true
+  },
+  {
+   "id": "DEV-14",
+   "kind": "top",
+   "customer_id": "NC-401156",
+   "item": "POST-ESSENTIAL",
+   "status": "generated",
+   "tier": "secondary",
+   "repaired": false,
+   "latency_ms": 526,
+   "usage": {
+    "prompt_tokens": 524,
+    "completion_tokens": 73
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": true
+  },
+  {
+   "id": "DEV-15",
+   "kind": "top",
+   "customer_id": "NC-407436",
+   "item": "ADDON-INTL-CALLING",
+   "status": "generated",
+   "tier": "secondary",
+   "repaired": false,
+   "latency_ms": 729,
+   "usage": {
+    "prompt_tokens": 563,
+    "completion_tokens": 93
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": true
+  },
+  {
+   "id": "DEV-16",
+   "kind": "top",
+   "customer_id": "NC-405106",
+   "item": "POST-ESSENTIAL",
+   "status": "generated",
+   "tier": "secondary",
+   "repaired": false,
+   "latency_ms": 425,
+   "usage": {
+    "prompt_tokens": 539,
+    "completion_tokens": 67
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": true
+  },
+  {
+   "id": "DEV-17",
+   "kind": "top",
+   "customer_id": "NC-404344",
+   "item": "POST-ESSENTIAL",
+   "status": "generated",
+   "tier": "secondary",
+   "repaired": false,
+   "latency_ms": 389,
+   "usage": {
+    "prompt_tokens": 531,
+    "completion_tokens": 68
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": true
+  },
+  {
+   "id": "DEV-18",
+   "kind": "top",
+   "customer_id": "NC-401317",
+   "item": "POST-ESSENTIAL",
+   "status": "generated",
+   "tier": "secondary",
+   "repaired": false,
+   "latency_ms": 416,
+   "usage": {
+    "prompt_tokens": 540,
+    "completion_tokens": 91
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": true
+  },
+  {
+   "id": "DEV-19",
+   "kind": "top",
+   "customer_id": "NC-404152",
+   "item": "SENIOR-55",
+   "status": "generated",
+   "tier": "secondary",
+   "repaired": false,
+   "latency_ms": 821,
+   "usage": {
+    "prompt_tokens": 537,
+    "completion_tokens": 60
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": true
+  },
+  {
+   "id": "DEV-20",
+   "kind": "top",
+   "customer_id": "NC-403009",
+   "item": "POST-ESSENTIAL",
+   "status": "generated",
+   "tier": "secondary",
+   "repaired": false,
+   "latency_ms": 955,
+   "usage": {
+    "prompt_tokens": 541,
+    "completion_tokens": 70
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": true
+  },
+  {
+   "id": "DEV-21",
+   "kind": "top",
+   "customer_id": "NC-400887",
+   "item": "STUDENT-UNLTD",
+   "status": "generated",
+   "tier": "secondary",
+   "repaired": false,
+   "latency_ms": 235,
+   "usage": {
+    "prompt_tokens": 526,
+    "completion_tokens": 57
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": true
+  },
+  {
+   "id": "DEV-22",
+   "kind": "top",
+   "customer_id": "NC-406126",
+   "item": "PRE-STARTER-5",
+   "status": "generated",
+   "tier": "secondary",
+   "repaired": false,
+   "latency_ms": 312,
+   "usage": {
+    "prompt_tokens": 569,
+    "completion_tokens": 83
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": true
+  },
+  {
+   "id": "DEV-23",
+   "kind": "top",
+   "customer_id": "NC-404107",
+   "item": "ADDON-INTL-MONTHLY",
+   "status": "generated",
+   "tier": "secondary",
+   "repaired": false,
+   "latency_ms": 346,
+   "usage": {
+    "prompt_tokens": 540,
+    "completion_tokens": 61
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": true
+  },
+  {
+   "id": "DEV-24",
+   "kind": "top",
+   "customer_id": "NC-401576",
+   "item": "POST-ESSENTIAL",
+   "status": "generated",
+   "tier": "secondary",
+   "repaired": false,
+   "latency_ms": 294,
+   "usage": {
+    "prompt_tokens": 524,
+    "completion_tokens": 66
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": true
+  },
+  {
+   "id": "DEV-25",
+   "kind": "top",
+   "customer_id": "NC-406837",
+   "item": "ADDON-INTL-CALLING",
+   "status": "generated",
+   "tier": "secondary",
+   "repaired": false,
+   "latency_ms": 423,
+   "usage": {
+    "prompt_tokens": 536,
+    "completion_tokens": 60
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": false
+  },
+  {
+   "id": "DEV-26",
+   "kind": "top",
+   "customer_id": "NC-405638",
+   "item": "POST-ESSENTIAL",
+   "status": "generated",
+   "tier": "secondary",
+   "repaired": false,
+   "latency_ms": 268,
+   "usage": {
+    "prompt_tokens": 526,
+    "completion_tokens": 53
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": true
+  },
+  {
+   "id": "DEV-27",
+   "kind": "top",
+   "customer_id": "NC-403128",
+   "item": "POST-ESSENTIAL",
+   "status": "generated",
+   "tier": "secondary",
+   "repaired": false,
+   "latency_ms": 1017,
+   "usage": {
+    "prompt_tokens": 526,
+    "completion_tokens": 67
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": true
+  },
+  {
+   "id": "DEV-28",
+   "kind": "top",
+   "customer_id": "NC-400395",
+   "item": "ADDON-INTL-CALLING",
+   "status": "generated",
+   "tier": "secondary",
+   "repaired": false,
+   "latency_ms": 560,
+   "usage": {
+    "prompt_tokens": 542,
+    "completion_tokens": 58
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": true
+  },
+  {
+   "id": "DEV-29",
+   "kind": "top",
+   "customer_id": "NC-404345",
+   "item": "POST-ESSENTIAL",
+   "status": "generated",
+   "tier": "secondary",
+   "repaired": false,
+   "latency_ms": 277,
+   "usage": {
+    "prompt_tokens": 524,
+    "completion_tokens": 60
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": true
+  },
+  {
+   "id": "DEV-30",
+   "kind": "top",
+   "customer_id": "NC-401075",
+   "item": "SENIOR-55",
+   "status": "generated",
+   "tier": "secondary",
+   "repaired": false,
+   "latency_ms": 212,
+   "usage": {
+    "prompt_tokens": 537,
+    "completion_tokens": 83
+   },
+   "safe_shown": true,
+   "names_item": true,
+   "bill_direction_right": false
+  }
+ ]
+}

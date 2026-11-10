@@ -1,0 +1,14 @@
+{
+ "set": "holdout",
+ "cases": 20,
+ "ai_message_rate": 100,
+ "safe_shown": 100,
+ "names_item": 100,
+ "bill_direction_right": 85,
+ "repaired": 2,
+ "primary_model_share": 5,
+ "latency_p50_ms": 402,
+ "latency_p95_ms": 930,
+ "avg_tokens_in": 605,
+ "avg_tokens_out": 96
+}

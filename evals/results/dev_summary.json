@@ -1,0 +1,14 @@
+{
+ "set": "dev",
+ "cases": 30,
+ "ai_message_rate": 96.7,
+ "safe_shown": 100,
+ "names_item": 100,
+ "bill_direction_right": 93.3,
+ "repaired": 1,
+ "primary_model_share": 3.3,
+ "latency_p50_ms": 416,
+ "latency_p95_ms": 1017,
+ "avg_tokens_in": 559,
+ "avg_tokens_out": 75
+}

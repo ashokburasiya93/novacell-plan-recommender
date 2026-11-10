@@ -15,24 +15,35 @@ NovaCell's in-app banner shows "Upgrade to Unlimited" to everyone, and agents fo
 
 Trained on the 2,159 choices made April–August 2026 and tested on the 698 made in September–October. Every method ranks the same eligible options for that customer.
 
-| Method | In top 1 | In top 3 | NDCG@3 | Bill shock (top 1) | Value to customer (top 1) |
-|---|---|---|---|---|---|
-| Popularity (one banner for all) | 36% | 71% | 0.57 | 9% | +$4.13/mo |
-| Today's agent playbook (rules) | 21% | 67% | 0.47 | 62% | −$24.88/mo |
-| Item-to-item collaborative filtering | 42% | 76% | 0.62 | 3% | +$6.95/mo |
-| Hybrid gradient-boosted ranker | 59% | 91% | 0.78 | 1.1% | +$16.76/mo |
-| **Hybrid + fit-first guardrail (chosen)** | **58%** | **89%** | **0.77** | **0.1%** | **+$16.80/mo** |
+| Method | In top 1 | In top 3 | NDCG@3 | Bill shock (top 1) | Slows data > 3 GB (top 1) | Value to customer (top 1) |
+|---|---|---|---|---|---|---|
+| Popularity (one banner for all) | 36% | 71% | 0.57 | 9% | 9% | +$4.13/mo |
+| Today's agent playbook (rules) | 21% | 66% | 0.47 | 62% | 3% | −$24.88/mo |
+| Item-to-item collaborative filtering | 42% | 76% | 0.62 | 3% | 10% | +$6.95/mo |
+| Hybrid gradient-boosted ranker | 59% | 91% | 0.78 | 1% | 5% | +$16.76/mo |
+| **Hybrid + fit-first guardrail (chosen)** | **57%** | **87%** | **0.75** | **0.1%** | **0%** | **+$15.99/mo** |
 
-*Bill shock* = the top suggestion raises the monthly bill by more than $15 without removing at least as much in charges or slowed data. *Value to customer* = bill change plus the value of data no longer slowed (assumed $1.50/GB).
+*Bill shock* = the top suggestion raises the monthly bill by more than $15 without removing at least as much in charges or slowed data. *Slows data* = the suggested plan's data cap would slow more than 3 GB a month of the customer's usage beyond today. *Value to customer* = bill change plus the value of data no longer slowed (assumed $1.50/GB).
 
-- **When to show nothing:** suggestions are shown only when the customer is at least $3 a month better off. At the start of September that showed suggestions to 39% of customers. 14% of them changed plan in the next two months, against 9% for a banner shown to everyone, and the gate reached 63% of everyone who changed.
-- **Fairness:** top-3 accuracy does not differ significantly by age band (p = 0.65), gender (p = 0.64) or region (p = 1.0). Gender and region are never inputs; age enters only as the 55+ plan's eligibility flag.
-- **The business tension:** most good fits lower the bill. For the top suggestion, *fit first* changes the bill by −$18.46 a month on average; *balanced*, which sends downgrades of more than $15 to the retention team instead, changes it by −$4.23. With the cost sheet's assumptions (8% adoption, 1.5% monthly churn, $82 average bill), *balanced* breaks even if it cuts churn among shown customers by about 28%; *fit first* pays back only if most of its downgrades would have happened anyway. The A/B test measures both before rollout (PRD, section 11).
+- **Fit first means never too small (added 10 Nov):** the first guardrail only blocked bill increases, so 5% of the ranker's top suggestions were cheaper plans whose data cap would slow the customer's usage (up to 30 GB a month), and the message never said so. The guardrail now drops any plan that would slow more than 3 GB a month; smaller slowdowns are shown in the app and the message must state them (the checker enforces it). Cost: top-3 accuracy 91% → 87%, because some customers, most often 18–24s, do pick cheaper, slower plans. We won't push them there.
+- **When to show nothing:** suggestions are shown only when the customer is at least $3 a month better off. At the start of September that showed suggestions to 37% of customers. 14% of them changed plan in the next two months, against 8% for a banner shown to everyone, and the gate reached 61% of everyone who changed.
+- **Fairness:** top-3 accuracy does not differ significantly by age band (p = 0.183), gender (p = 0.458) or region (p = 0.616). 18–24s are lowest (80%); we monitor that in the pilot. Gender and region are never inputs; age enters only as the 55+ plan's eligibility flag.
+- **The business tension:** most good fits lower the bill. For the top suggestion, *fit first* changes the bill by −$17.28 a month on average; *balanced*, which sends downgrades of more than $15 to the retention team instead, changes it by −$3.98. With the cost sheet's assumptions (8% adoption, 1.5% monthly churn, $82 average bill), *balanced* breaks even if it cuts churn among shown customers by about 26%; *fit first* pays back only if most of its downgrades would have happened anyway. The A/B test measures both before rollout (PRD, section 11).
+
+## In-app message evals (live, 10 Nov 2026)
+
+| Set | Cases | Shown messages passing checks | AI-written | Names the item | Tokens in / out | p95 |
+|---|---|---|---|---|---|---|
+| Dev | 30 | 100% | 96.7% | 100% | 559 / 75 | 1.0 s |
+| Held-out | 20 | 100% | 100% | 100% | 605 / 96 | 0.9 s |
+| Safety (bill up, 55+, look-alike names, data slowed) | 20 | 100% | 90% | 100% | 552 / 81 | 2.1 s |
+
+Three of 70 messages invented a number (the checker caught it twice in a row) and were replaced by the plain template, so every message shown was correct. Groq's 120b daily quota was spent on other evals, so most messages came from gpt-oss-20b, the second model. Rows: `evals/results/`.
 
 ## How it works
 
 ```
-monthly usage + holdings ─► eligible options (catalogue rules) ─► bill under each option ─► hybrid ranker ─► guardrail (no bill shock) ─► gate (≥ $3 better off) ─► top 3 + reasons ─► LLM message ─► code checks ─► shown
+monthly usage + holdings ─► eligible options (catalogue rules) ─► bill under each option ─► hybrid ranker ─► guardrail (no bill shock, no plan that slows 3+ GB) ─► gate (≥ $3 better off) ─► top 3 + reasons ─► LLM message ─► code checks ─► shown
 ```
 
 | Piece | File |

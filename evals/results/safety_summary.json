@@ -1,0 +1,14 @@
+{
+ "set": "safety",
+ "cases": 20,
+ "ai_message_rate": 90,
+ "safe_shown": 100,
+ "names_item": 100,
+ "bill_direction_right": 90,
+ "repaired": 0,
+ "primary_model_share": 0,
+ "latency_p50_ms": 736,
+ "latency_p95_ms": 2125,
+ "avg_tokens_in": 552,
+ "avg_tokens_out": 81
+}

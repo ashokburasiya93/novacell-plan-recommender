@@ -1,0 +1,3 @@
+DEV-12: AI message failed checks (numbers not in the facts: 50) -> template shown
+SAF-05: AI message failed checks (numbers not in the facts: 67.8) -> template shown
+SAF-13: AI message failed checks (numbers not in the facts: 30.8) -> template shown
