@@ -18,7 +18,7 @@
 2 Workflow,Sticky,S5 Changes plan (or leaves) | Today,"Changes on own research, or ports out.",gray,,,,
 2 Workflow,Sticky,S5 Changes plan (or leaves) | Pain,No measurement of which suggestions worked.,red,,,,
 2 Workflow,Sticky,S5 Changes plan (or leaves) | AI opportunities,O8,light_green,,,,
-3 Opportunities,Card,O1 Bill under every option,"Calculate each customer's monthly bill and slowed data under every eligible plan and add-on. Why AI: Not AI, but the feature that makes the recommender honest. Evidence: 34% better off elsewhere Stage: S1, S3",blue,5,5,25,Do first (MVP)
+3 Opportunities,Card,O1 Bill under every option,"Calculate each customer's monthly bill and slowed data under every eligible plan and add-on. Why AI: Not AI, but the feature that makes the recommender honest. Evidence: 31% better off elsewhere Stage: S1, S3",blue,5,5,25,Do first (MVP)
 3 Opportunities,Card,O2 Eligibility rules,"Catalogue rules: student, 55+, family size, prepaid moves. Why AI: Rules, not ML; must be exact. Evidence: plan terms Stage: S1",blue,4,5,20,Do first (MVP)
 3 Opportunities,Card,O3 Recommender (hybrid ranker),"Rank options by what similar customers chose, their usage and the bill impact. Why AI: Learns trade-offs a playbook can't. Evidence: playbook top-3 hit 67% Stage: S2, S4",blue,5,4,20,Do first (MVP)
 3 Opportunities,Card,O4 Fit-first guardrail + show-nothing gate,Drop bill-shock suggestions; show nothing unless the customer is $3+ better off. Why AI: Trust. Evidence: 62% bill shock today Stage: S2,blue,5,5,25,Do first (MVP)
