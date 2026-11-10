@@ -192,14 +192,21 @@ def gain_of(p, it):
     return -(d_paid + d_pain)
 
 
+SLOW_LIMIT_GB = 3.0  # fit first: never suggest a plan that would slow more than 3 GB a month of the customer's usage beyond today; smaller slowdowns are allowed but always disclosed
+
+
+def adds_slowdown(p, it):
+    return item_feats(p, it)[2] < -SLOW_LIMIT_GB
+
+
 def guarded(p, ranked):
-    keep = [it for it in ranked if not shock(p, it)]
+    keep = [it for it in ranked if not shock(p, it) and not adds_slowdown(p, it)]
     return keep or ranked[:1]
 
 
 def evaluate(rows, method, guard=False):
     hits1 = hits3 = ndcg = mrr = 0.0
-    shocks = 0
+    shocks = slows = 0
     saves = []
     per = []
     for p, cands, target, _ in rows:
@@ -214,12 +221,13 @@ def evaluate(rows, method, guard=False):
         mrr += 1 / (pos + 1) if pos is not None else 0
         top = r[0]
         shocks += shock(p, top)
+        slows += adds_slowdown(p, top)
         d_paid, d_pain, _ = item_feats(p, top)
         saves.append(-(d_paid + d_pain))
         per.append((p, h3, shock(p, top)))
     n = len(rows)
     return {"hit_at_1": round(hits1 / n, 3), "hit_at_3": round(hits3 / n, 3), "ndcg_at_3": round(ndcg / n, 3), "mrr": round(mrr / n, 3),
-            "bill_shock_top1": round(shocks / n, 3), "avg_customer_gain_top1_usd": round(float(np.mean(saves)), 2)}, per
+            "bill_shock_top1": round(shocks / n, 3), "adds_slowdown_top1": round(slows / n, 3), "avg_customer_gain_top1_usd": round(float(np.mean(saves)), 2)}, per
 
 
 metrics = {"data": {"customers": int(len(cust)), "train_decisions": len(train), "test_decisions": len(test), "train_months": TRAIN_MONTHS, "test_months": TEST_MONTHS,

@@ -51,57 +51,92 @@
  {
   "id": "SAF-08",
   "kind": "senior",
-  "customer_id": "NC-405369",
+  "customer_id": "NC-406479",
   "item": "SENIOR-55",
-  "bill_change_usd": -30.0
+  "bill_change_usd": -20.0
  },
  {
   "id": "SAF-09",
   "kind": "senior",
-  "customer_id": "NC-402253",
+  "customer_id": "NC-404638",
   "item": "SENIOR-55",
   "bill_change_usd": -30.0
  },
  {
   "id": "SAF-10",
   "kind": "senior",
-  "customer_id": "NC-402716",
+  "customer_id": "NC-404430",
   "item": "SENIOR-55",
   "bill_change_usd": -30.0
  },
  {
   "id": "SAF-11",
   "kind": "name_overlap",
-  "customer_id": "NC-400962",
-  "item": "STUDENT-UNLTD",
-  "bill_change_usd": -50.0
+  "customer_id": "NC-405174",
+  "item": "POST-UNLIMITED-PLUS",
+  "bill_change_usd": -20.0
  },
  {
   "id": "SAF-12",
   "kind": "name_overlap",
-  "customer_id": "NC-403080",
+  "customer_id": "NC-403840",
   "item": "POST-UNLIMITED-PLUS",
-  "bill_change_usd": -10.0
+  "bill_change_usd": -16.67
  },
  {
   "id": "SAF-13",
   "kind": "name_overlap",
-  "customer_id": "NC-406200",
-  "item": "STUDENT-UNLTD",
-  "bill_change_usd": -25.0
- },
- {
-  "id": "SAF-14",
-  "kind": "name_overlap",
-  "customer_id": "NC-402527",
+  "customer_id": "NC-400326",
   "item": "STUDENT-UNLTD",
   "bill_change_usd": -30.0
  },
  {
+  "id": "SAF-14",
+  "kind": "name_overlap",
+  "customer_id": "NC-403389",
+  "item": "STUDENT-UNLTD",
+  "bill_change_usd": -20.0
+ },
+ {
   "id": "SAF-15",
   "kind": "name_overlap",
-  "customer_id": "NC-401072",
+  "customer_id": "NC-405352",
   "item": "POST-UNLIMITED",
+  "bill_change_usd": 25.0
+ },
+ {
+  "id": "SAF-16",
+  "kind": "data_slowed",
+  "customer_id": "NC-403702",
+  "item": "POST-ESSENTIAL",
+  "bill_change_usd": -25.0
+ },
+ {
+  "id": "SAF-17",
+  "kind": "data_slowed",
+  "customer_id": "NC-401996",
+  "item": "PRE-STARTER-5",
+  "bill_change_usd": -10.0
+ },
+ {
+  "id": "SAF-18",
+  "kind": "data_slowed",
+  "customer_id": "NC-405706",
+  "item": "POST-ESSENTIAL",
+  "bill_change_usd": -35.0
+ },
+ {
+  "id": "SAF-19",
+  "kind": "data_slowed",
+  "customer_id": "NC-407237",
+  "item": "PRE-STARTER-5",
+  "bill_change_usd": -10.0
+ },
+ {
+  "id": "SAF-20",
+  "kind": "data_slowed",
+  "customer_id": "NC-407054",
+  "item": "PRE-VALUE-15",
   "bill_change_usd": -20.0
  }
 ]

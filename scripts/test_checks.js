@@ -23,4 +23,7 @@ for (const b of broken) if (checkMessage(b, c, r).length) caught++; else console
 console.log(`broken messages caught: ${caught}/${broken.length}`);
 const up = recs.flatMap((x) => x.recommendations.map((rr) => [x, rr])).find(([, rr]) => rr.bill_change_usd > 1);
 if (up) { const msg = { headline: "A better fit", body: `${up[1].name} fits your recent usage.`, cta: "See details" }; console.log("hides bill increase caught:", checkMessage(msg, up[0], up[1]).length > 0); }
-if (fail || caught < broken.length) process.exit(1);
+const slow = recs.flatMap((x) => x.recommendations.map((rr) => [x, rr])).find(([, rr]) => rr.slowed_gb_removed < -0.05);
+let slowCaught = true;
+if (slow) { const msg = { headline: "A better fit", body: `${slow[1].name} matches your recent usage.`, cta: "See details" }; slowCaught = checkMessage(msg, slow[0], slow[1]).length > 0; console.log("hides data slowdown caught:", slowCaught); }
+if (fail || caught < broken.length || !slowCaught) process.exit(1);
